@@ -1,0 +1,71 @@
+.progress-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.progress-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: var(--accent-glow);
+}
+
+/* Subject Progress Card */
+.subject-progress-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.subjects-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subject-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subject-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-sm);
+}
+
+.subject-bar-title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.subject-bar-pct {
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+/* Charts Grid */
+.charts-grid {
+  align-items: stretch;
+}
+
+.chart-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+}
+
+.chart-wrapper {
+  flex: 1;
+  position: relative;
+  min-height: 260px;
+  width: 100%;
+}

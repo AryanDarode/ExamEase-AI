@@ -1,0 +1,92 @@
+/* Fixed Fullscreen 3D Background Container */
+.animated-bg-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #080c18;
+}
+
+/* Deep base gradient */
+.animated-bg-base {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, #0e172a 0%, #060913 90%);
+  z-index: 1;
+}
+
+/* 3D Canvas wrapper */
+.animated-bg-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.92;
+}
+
+/* Fallback while 3D bundle lazy-loads */
+.animated-bg-fallback {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, #0d1e2e 0%, #060913 85%);
+  animation: pulse-subtle 4s ease-in-out infinite alternate;
+}
+
+/* Static background for users with prefers-reduced-motion */
+.animated-bg-static {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 25%, #0f2736 0%, #091322 45%, #060913 85%);
+  z-index: 2;
+}
+
+/* Semi-transparent dark scrim (60-70% opacity) for text and form readability */
+.animated-bg-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 19, 0.62) 0%,
+    rgba(8, 12, 24, 0.68) 50%,
+    rgba(6, 9, 19, 0.72) 100%
+  );
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+
+/* Soft ambient lighting glow */
+.animated-bg-ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.18;
+}
+
+.glow-top-left {
+  top: -150px;
+  left: -150px;
+  background: #14b8a6;
+}
+
+.glow-bottom-right {
+  bottom: -150px;
+  right: -150px;
+  background: #6366f1;
+}
+
+@keyframes pulse-subtle {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
