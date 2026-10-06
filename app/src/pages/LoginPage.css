@@ -217,3 +217,192 @@
 .spin {
   animation: spin 1s linear infinite;
 }
+
+/* ─────────────────────────────────────────
+   SUCCESS STEP
+───────────────────────────────────────── */
+.success-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl) 0 var(--space-md);
+  text-align: center;
+}
+
+/* Animated ring + check icon */
+.success-icon-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-ring-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+  animation: ring-spin-in 0.9s ease-out forwards;
+}
+
+@keyframes ring-spin-in {
+  from {
+    opacity: 0;
+    stroke-dashoffset: 339.3;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+.success-ring-track {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.success-ring-progress {
+  stroke: var(--accent-primary, #14b8a6);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(20, 184, 166, 0.8));
+  animation: ring-draw 0.9s ease-out forwards;
+}
+
+@keyframes ring-draw {
+  from { stroke-dashoffset: 339.3; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.success-icon-inner {
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(16, 185, 129, 0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pop-in 0.5s 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pop-in {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.success-check-icon {
+  color: #10b981;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
+  animation: pulse-glow 2s ease-in-out infinite 1s;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(16, 185, 129, 1)); }
+}
+
+/* Text */
+.success-title {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  animation: slide-up 0.5s 0.6s ease both;
+}
+
+.success-sub {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  animation: slide-up 0.5s 0.7s ease both;
+}
+
+.success-email {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: rgba(20, 184, 166, 0.12);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  color: var(--text-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Verified badge */
+.success-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  font-size: 0.8rem;
+  font-weight: 600;
+  animation: slide-up 0.5s 0.8s ease both;
+}
+
+/* Redirect countdown */
+.success-redirect-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  animation: slide-up 0.5s 0.9s ease both;
+}
+
+.success-redirect-note strong {
+  color: var(--text-accent);
+  font-size: 1rem;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────
+   DEV-ONLY RESET BAR
+───────────────────────────────────────── */
+.dev-reset-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(251, 146, 60, 0.4);
+  background: rgba(251, 146, 60, 0.05);
+  gap: 10px;
+}
+
+.dev-reset-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(251, 146, 60, 0.8);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn-dev-reset {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(251, 146, 60, 0.5);
+  background: rgba(251, 146, 60, 0.12);
+  color: rgb(251, 146, 60);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-dev-reset:hover {
+  background: rgba(251, 146, 60, 0.25);
+  border-color: rgba(251, 146, 60, 0.8);
+  transform: scale(1.02);
+}
